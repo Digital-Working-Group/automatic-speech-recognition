@@ -74,5 +74,6 @@ triton==3.1.0
 typing_extensions==4.12.2
 tzdata==2024.2
 urllib3==2.2.3
+whisper-timestamped==1.15.8
 xxhash==3.5.0
 yarl==1.17.1
