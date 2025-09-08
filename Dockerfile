@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y ffmpeg
 RUN --mount=type=cache,target=/root/.cache/pip --mount=source=requirements.txt,target=requirements.txt \
     python3 -m pip install -r requirements.txt
 
-WORKDIR /src
+WORKDIR /scripts/src
 COPY src/. .
 
 # FROM continuumio/miniconda3
