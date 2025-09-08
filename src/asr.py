@@ -32,11 +32,11 @@ def predict_asr(**kwargs):
 
     # Make predictions
     print("MAKING PREDICTIONS")
-    predictions = []
+    predictions = {}
     for file in files:
         filepath = f"{input_files_path}/{file}"
         pred = model(filepath)
-        predictions.append(pred)
+        predictions[file] = pred
 
     with open(output_dir / "metadata.json", "w") as out_file:
         json.dump({
@@ -45,13 +45,15 @@ def predict_asr(**kwargs):
             "transcribe_kwargs": transcribe_kwargs
         }, out_file)
 
-    for prediction in predictions:
+    for filename, prediction in predictions.items():
+        full_output_dir = Path(output_dir) / (filename.split(".")[0])
+        full_output_dir.mkdir(parents=True, exist_ok=True)
         if "json" in output_types:
-            write_asr_json(prediction, output_dir)
+            write_asr_json(prediction, full_output_dir)
         if "csv" in output_types:
-            write_asr_csv(prediction, output_dir)
+            write_asr_csv(prediction, full_output_dir)
         if "txt" in output_types:
-            write_asr_txt(prediction, output_dir)
+            write_asr_txt(prediction, full_output_dir)
 
 if __name__ == "__main__":
     pass
