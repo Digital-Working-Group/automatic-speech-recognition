@@ -1,20 +1,18 @@
-from asr import predict_asr,predict_asr_dataset
+from asr import predict_asr
 
 def main():
     """
     Runs ASR 
     """
-    kwargs = {"model_id": "linto-ai/whisper-timestamped",
-              "input_path": "sample_files"}
-    
-    old_kwargs = {"model_id": "linto-ai/whisper-timestamped",
-              "dataset_id": "amaai-lab/DisfluencySpeech",
-              "dataset_config_name": "default",
-              "dataset_split": "train[:5]"}
+    kwargs = {"model_id": "tiny",
+              "output_types": ["json", "csv", "txt"]}
     
     predict_asr(**kwargs)
-    # predict_asr_dataset(**old_kwargs)
 
-
+    kwargs = {"model_id": "NbAiLabBeta/nb-whisper-base-verbatim",
+              "output_types": ["json", "csv", "txt"]}
+    
+    predict_asr(**kwargs)
+    
 if __name__ == "__main__":
     main()
