@@ -25,8 +25,7 @@ def load(**kwargs):
         force_reload=False)
 
     def transcribe_function(file, **transcribe_kwargs):
-        print(file)
-        input()
         audio = whisper.load_audio(str(file))
         return whisper.transcribe(wt_model, audio, **transcribe_kwargs)
+    
     return lambda file: transcribe_function(file, **transcribe_kwargs)
