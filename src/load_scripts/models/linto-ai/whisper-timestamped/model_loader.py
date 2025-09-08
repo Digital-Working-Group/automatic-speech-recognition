@@ -1,36 +1,32 @@
+"""
+model_loader.py
+"""
 import whisper_timestamped as whisper
-import transformers
-import os
-
-
-def load_old():
-    wt_model = whisper.load_model("tiny", device="cpu")
-    transcriber = transformers.pipeline("automatic-speech-recognition", model=wt_model, trust_remote_code=True)
-    return lambda dataset: transcriber(dataset["audio"], generate_kwargs={'task': 'transcribe', 'language': 'en'})
+import torch
 
 def load(**kwargs):
-    model = kwargs.get("model", "tiny")
+    model_id = kwargs.get("model_id")
     device = kwargs.get("device", "cpu")
-    wt_model = whisper.load_model(model, device=device)
+    wt_model = whisper.load_model(model_id, device=device)
+    print(f"model id loading: {model_id}")
 
-    def transcribe_function(file):
-        print("Current working directory:", os.getcwd())
+    transcribe_kwargs = {
+        "beam_size": kwargs.get("beam_size", 5), 
+        "best_of": kwargs.get("best_of", 5),
+        "temperature": kwargs.get("temperature", (0.0, 0.2, 0.4, 0.6, 0.8, 1.0)),
+        "language": kwargs.get("language", "en"),
+        "vad": kwargs.get("vad", True) }
+
+    if transcribe_kwargs.get("vad") is True:
+        torch.hub.load(
+        'snakers4/silero-vad',
+        'silero_vad',
+        trust_repo=True,
+        force_reload=False)
+
+    def transcribe_function(file, **transcribe_kwargs):
         print(file)
         input()
         audio = whisper.load_audio(str(file))
-        return whisper.transcribe(wt_model, audio, language="en")
-    return transcribe_function
-
-
-
-# def load():
-#     transcriber = transformers.pipeline("automatic-speech-recognition", model="NbAiLabBeta/nb-whisper-medium-verbatim", trust_remote_code=True)
-
-#     def transcribe_function(dataset):
-#         return transcriber(dataset["audio"], generate_kwargs={'task': 'transcribe', 'language': 'en'})
-    
-#     return transcribe_function
-
-# def load():
-#     transcriber = transformers.pipeline("automatic-speech-recognition", model="openai/whisper-base", trust_remote_code=True)
-#     return lambda dataset: transcriber(dataset["audio"])
+        return whisper.transcribe(wt_model, audio, **transcribe_kwargs)
+    return lambda file: transcribe_function(file, **transcribe_kwargs)
