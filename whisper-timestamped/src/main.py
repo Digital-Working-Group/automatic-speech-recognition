@@ -31,4 +31,5 @@ def main_gpu():
     run_asr(input_fp, **kwargs)
 
 if __name__ == '__main__':
-    main_gpu()
+    main_cpu()
+    # main_gpu()

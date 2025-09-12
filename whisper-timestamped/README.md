@@ -18,6 +18,7 @@ whisper-timestamped
    |   |-- py3-10-11
    |   |   |-- Dockerfile
    |   |   |-- build_docker.sh
+   |   |   |-- pip-licenses.md
    |   |   |-- requirements.txt
    |   |   |-- run_docker.sh
 ```
@@ -84,39 +85,63 @@ Please see a few other tutorials on this process for Windows. Note that you may 
 3. [Transloadit](https://transloadit.com/devtips/how-to-install-ffmpeg-on-windows-a-complete-guide/).
 
 ## Usage Example
-See [main.main()](src/main.py) for usage examples. The `predict_asr()` KWARGS that define the model and data to be passed into the model. For each run of `predict_asr()`, there will be one metadata JSON file that captures the KWARGs provided as well as prediction files for each of the input files provided. The prediction files produced depend on the files requested using the kwarg `output_types`, but the default will be a `prediction.json` file for each input file. 
+See [main.main()](src/main.py) for usage examples. See `main_cpu()` and `main_gpu()` for examples of utilizing CPU and GPU devices respectively.
 
 ```python
-from asr import predict_asr
-kwargs = {  "model_id": "YOUR MODEL",
-            "input_path": "YOUR FOLDER PATH",
-            "output_types", "YOUR DESIRED OUTPUT EXTS"}
-predict_asr(**kwargs)
-```
+"""
+main.py
+main entrypoint to run ASR
+"""
+from asr import run_asr
 
-Or to run our preset example, you could run:
-```python
-from main import main
-main()
-```
+def main_cpu():
+    """
+    Runs ASR with cpu 
+    """
+    input_fp = '../sample_files/first_ten_Sample_HV_Clip.wav'
 
-This would output a metadata.json file, a prediction.json, prediction.csv, and prediction.txt for each file provided. We only provide one input file, so there will be one of each.
+    kwargs = {'model_id': 'tiny', 'device': 'cpu', 'output_types': ['json', 'csv', 'txt']}
+    run_asr(input_fp, **kwargs)
+
+    kwargs = {'model_id': 'NbAiLabBeta/nb-whisper-base-verbatim', 'device': 'cpu',
+              'output_types': ['json', 'csv', 'txt']}
+    run_asr(input_fp, **kwargs)
+
+def main_gpu():
+    """
+    Runs ASR 
+    """
+    input_fp = '../sample_files/first_ten_Sample_HV_Clip.wav'
+
+    kwargs = {'model_id': 'tiny', 'device': 'cuda:0', 'output_types': ['json', 'csv', 'txt']}
+    run_asr(input_fp, **kwargs)
+
+    kwargs = {'model_id': 'NbAiLabBeta/nb-whisper-base-verbatim', 'device': 'cuda:0',
+              'output_types': ['json', 'csv', 'txt']}
+    run_asr(input_fp, **kwargs)
+
+if __name__ == '__main__':
+    main_cpu()
+    # main_gpu()
+```
 
 ### Arguments
-The `asr.predict_asr()` function takes a set of keyword arguments to define input and output paths and to load the model. The model loader can be found in [load_scripts](src/load_scripts/linto-ai/whisper-timestamped/model_loader.py). For more infomration on `whipser.load_model`, please see the [linto-ai/whipser-timestamped documentation](https://github.com/linto-ai/whisper-timestamped).
+The `asr.run_asr()` function takes in an input filepath (`input_fp`) and a set of keyword arguments to define output paths, the desired model, device, output types, and additional transcribe keyword arguments.
+
+The model loader can be found in [load_scripts](src/load_scripts/linto-ai/whisper-timestamped/model_loader.py). For more information on `whisper.load_model`, please see the [linto-ai/whisper-timestamped documentation](https://github.com/linto-ai/whisper-timestamped).
 
 `model_id` is the id of the ASR model to use during the predictions task.
-See [Models](#models) for a list of suggested and compatible models. See HuggingFace for more information about each model.
+See [Models](#models) for a list of suggested and compatible models.
 
-#### predict_asr: kwargs
+#### run_asr: kwargs
 | Keyword Argument | Type | Description | Default Value |
 |---|---|---|---|
+| output_fname | str | The desired base filename of the output files. | Basename of input_fp |
+| output_parent | str | The desired root folder to place output files. | "output/" in the base directory of input_fp. |
 | model_id | str | The id of the desired model. | None |
 | device | str | Where operations are run. | "cpu" |
-| input_path | str | Path to folder containing input data. | "sample_files" |
-| output_base_dir | str | Path to desired output folder. | "/scripts/output" |
 | output_types | list | List of desired output filestypes. Choices include: json, csv, txt. | ["json"] |
-| transcribe_kwargs | dict | KWARGS to be passed to whisper.transcribe. See the following table for further details. | See following table. |
+| transcribe_kwargs | dict | KWARGS to be passed to whisper.transcribe. See the whisper.transcribe KWARGS table for further details. | See following table. |
 
 #### whisper.transcribe: transcribe_kwargs
 | Keyword Argument | Type | Description | Default Value |
@@ -127,36 +152,33 @@ See [Models](#models) for a list of suggested and compatible models. See Hugging
 | language | str | Language of audio. | "en" |
 | vad | bool | Perform voice activity detection or remove silences before transcribing. | True |
 
-### Sample Input and Output Files Output Files
-Input audio files should be placed in a together in a folder to target. For our example, our sample input is set up as:
+### Sample Input and Output Files
 
 ```
-sample_files
-└── first_minute_Sample_HV_Clip.wav
+├───sample_files
+│   │   first_ten_Sample_HV_Clip.wav
+│   │
+│   └───output
+│       ├───NbAiLabBeta_nb-whisper-base-verbatim
+│       │   └───2025-09-12T18-31-44-013031
+│       │           first_ten_Sample_HV_Clip.csv
+│       │           first_ten_Sample_HV_Clip.json
+│       │           first_ten_Sample_HV_Clip.txt
+│       │           metadata.json
+│       │
+│       └───tiny
+│           └───2025-09-12T18-31-32-139162
+│                   first_ten_Sample_HV_Clip.csv
+│                   first_ten_Sample_HV_Clip.json
+│                   first_ten_Sample_HV_Clip.txt
+│                   metadata.json
 ```
 
-The sample hierarchy below shows files created by running `main()` using Docker. `predict_asr()` creates a `metadata.json` containing the KWARGS used to produce the output. It will also produce any output files specified by the `output_types` KWARG containing the predictions calculated by the model. By default, only `predictions.json` will be created, but if you pass in all three file types, the output would be the following:
-
-```
-output
-├── NbAiLabBeta_nb-whisper-base-verbatim
-    ├── metadata.json
-    └── first_minute_Sample_HV_Clip
-            ├── predictions.csv
-            ├── predictions.json
-            └── predictions.txt
-└── tiny
-    ├── metadata.json
-    └── first_minute_Sample_HV_Clip
-        ├── predictions.csv
-        ├── predictions.json
-        └── predictions.txt
-```
 ## Models
 See HuggingFace or [linto-ai/whisper-timestamped](https://github.com/linto-ai/whisper-timestamped) for more information about each model.
 
 ### General ASR
-For general ASR, Open-AI-whipser idenitifiers can be passed in without using the full HuggingFace identifier. 
+For general ASR, Open-AI-whisper identifiers can be passed in without using the full HuggingFace identifier. 
 - tiny 
     - See [openai/whisper-tiny](https://huggingface.co/openai/whisper-tiny) for details.
 - base
