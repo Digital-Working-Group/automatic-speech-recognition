@@ -19,7 +19,9 @@ whisper-timestamped
    |   |   |-- Dockerfile
    |   |   |-- build_docker.sh
    |   |   |-- pip-licenses.md
+   |   |   |-- pip-licenses_cpu.md
    |   |   |-- requirements.txt
+   |   |   |-- requirements_cpu.txt
    |   |   |-- run_docker.sh
 ```
 
@@ -33,6 +35,12 @@ See [Anaconda](https://www.anaconda.com/download/success) as an option to switch
 Install requirements for Python 3.10.11:
 ```sh
 pip install -r requirements/py-3-10-11/requirements.txt ## Python 3.10.11 requirements
+```
+
+There are specific requirements for Python 3.12.11 when utilizing an environment without CUDA/GPU capabilities, due to an issue with nvidia-cufile-cu12.
+
+```sh
+pip install -r requirements/py-3-10-11/requirements_cpu.txt ## Python 3.10.11 CPU-only requirements
 ```
 
 Note: you may use the pip install command described above even if you are working with a different Python version, but you may need to adjust the requirements.txt file to fit any dependencies specific to that Python version.
