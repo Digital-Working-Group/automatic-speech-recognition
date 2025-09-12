@@ -11,40 +11,38 @@ This repository runs several automaic speech recognition (ASR) models on differe
 
 ## Installation and Setup
 
+### Python Requirements
+```
+whisper-timestamped
+   |-- requirements
+   |   |-- py3-10-11
+   |   |   |-- Dockerfile
+   |   |   |-- build_docker.sh
+   |   |   |-- requirements.txt
+   |   |   |-- run_docker.sh
+```
+
 ### Without Docker
 Check your Python version:
 ```sh
 python --version
 ```
-See [Anaconda](https://www.anaconda.com/download/success) as an option to switch between Python versions. This repository has been tested with Python 3.12.11
+See [Anaconda](https://www.anaconda.com/download/success) as an option to switch between Python versions. This repository has been tested with Python 3.10.11.
 
-Install requirements for Python 3.12.11:
+Install requirements for Python 3.10.11:
 ```sh
-pip install -r requirements/py-3-12-11/requirements.txt
+pip install -r requirements/py-3-10-11/requirements.txt ## Python 3.10.11 requirements
 ```
 
 Note: you may use the pip install command described above even if you are working with a different Python version, but you may need to adjust the requirements.txt file to fit any dependencies specific to that Python version.
 
-You will also need to install FFmpeg. See [FFmpeg Setup](#ffmpeg-setup) for instructions. 
+FFmpeg is required, please see [FFmpeg Setup](#ffmpeg-setup) for instructions. 
 
-## With Docker
-[Docker](https://docs.docker.com/engine/install/) is required for building and running the docker container. Docker version 24.0.6, build ed223bc was used to develop and test these scripts.
+### Requirements.txt License Information
+License information for each set of requirements.txt can be found in their respective `pip-licenses.md` file within the requirements/python[version] folders.
 
-Run the necessary docker build and run commands provided in the `build_docker.sh` and `run_docker.sh` scripts. These .sh scripts were tested on Linux (CentOS 7).
-
-```sh
-./build_docker.sh
-./run_docker.sh
-```
-
-The Docker commands included in the .sh scripts are:
-```sh
-docker build -t $docker_name .
-## build the container image under the name 'docker_name' based on the Dockerfile specifications
-docker run -v $(pwd):/scripts -it --rm --gpus all --name $container_name $docker_name bash
-## run the built container image ('docker_name') under the container name ('container_name')
-## mounts the current working directory $(pwd) as a volume to /scripts within the container
-```
+### Docker Support
+[Docker](https://docs.docker.com/engine/install/) support can be found via the `Dockerfile` and `build_docker.sh` and `run_docker.sh` files within the requirements/python[version] folders.
 
 Please see Docker's documentation for more information ([docker build](https://docs.docker.com/build/), [Dockerfile](https://docs.docker.com/build/concepts/dockerfile/), [docker run](https://docs.docker.com/reference/cli/docker/container/run/)).
 
