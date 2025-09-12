@@ -6,4 +6,4 @@ __pycache__/
 *.mp3
 .DS_Store
 *venv12/
-*output
+output/

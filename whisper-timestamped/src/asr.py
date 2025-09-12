@@ -1,59 +1,40 @@
 """
 asr.py
+scripts for automatic speech recognition
 """
-
-from collections.abc import Iterable
-from pathlib import Path
 import json
 import importlib
 from datetime import datetime
-from asr_ouput import write_asr_json, write_asr_csv, write_asr_txt
+from pathlib import Path
+from asr_output import write_asr
 
-def predict_asr(**kwargs):
-
+def run_asr(input_fp, **kwargs):
+    """
+    Run automatic speech recognition
+    """
+    input_fp_path = Path(input_fp)
+    output_fname = kwargs.get('output_fname', Path(input_fp_path.name).stem)
+    output_parent = kwargs.get('output_parent', input_fp_path.parent / "output")
     model_id = kwargs.get("model_id")
     device = kwargs.get("device", "cpu")
-    input_path = kwargs.get("input_path", "../sample_files")
-    output_base_dir = kwargs.get("output_base_dir", "../output")
     output_types = kwargs.get("output_types", ["json"])
     transcribe_kwargs = kwargs.get("transcribe_kwargs", {})
 
-    output_dir = Path(output_base_dir) / (model_id.replace("/", "_"))
+    iso_now = datetime.now().isoformat().replace(':', '-').replace('.', '-')
+    output_dir = Path(output_parent) / model_id.replace("/", "_") / iso_now
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    ## Prepare files
-    input_files_path = Path(input_path)
-    files = [item.name for item in input_files_path.iterdir() if item.is_file()]
-
-    print("LOADING MODEL")
-    model_loader = importlib.import_module(f"load_scripts.models.linto-ai.whisper-timestamped.model_loader")
+    print(f"LOADING MODEL={model_id}")
+    model_loader = importlib.import_module("load_scripts.models.linto-ai.whisper-timestamped.model_loader")
     model = model_loader.load(model_id=model_id, device=device, **transcribe_kwargs)
-    print("MODEL LOADED")
+    print(f"LOADED MODEL={model_id}")
 
-    # Make predictions
-    print("MAKING PREDICTIONS")
-    predictions = {}
-    for file in files:
-        filepath = f"{input_files_path}/{file}"
-        pred = model(filepath)
-        predictions[file] = pred
-
+    print("RUNNING ASR")
+    prediction = model(input_fp)
     with open(output_dir / "metadata.json", "w") as out_file:
         json.dump({
             "model_id": model_id,
-            "input_path": input_path,
+            "input_path": input_fp,
             "transcribe_kwargs": transcribe_kwargs
         }, out_file)
-
-    for filename, prediction in predictions.items():
-        full_output_dir = Path(output_dir) / (filename.split(".")[0])
-        full_output_dir.mkdir(parents=True, exist_ok=True)
-        if "json" in output_types:
-            write_asr_json(prediction, full_output_dir)
-        if "csv" in output_types:
-            write_asr_csv(prediction, full_output_dir)
-        if "txt" in output_types:
-            write_asr_txt(prediction, full_output_dir)
-
-if __name__ == "__main__":
-    pass
+    write_asr(output_types, prediction, output_dir / output_fname)
