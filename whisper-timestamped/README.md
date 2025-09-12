@@ -143,7 +143,7 @@ See [Models](#models) for a list of suggested and compatible models.
 #### run_asr: kwargs
 | Keyword Argument | Type | Description | Default Value |
 |---|---|---|---|
-| output_fname | str | The desired base filename of the output files. | Basename of input_fp |
+| output_fname | str | The desired base filename of the output files. | Basename of input_fp. |
 | output_parent | str | The desired root folder to place output files. | "output/" in the base directory of input_fp. |
 | model_id | str | The id of the desired model. | None |
 | device | str | Where operations are run. | "cpu" |
