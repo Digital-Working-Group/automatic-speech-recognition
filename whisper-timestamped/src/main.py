@@ -1,3 +1,7 @@
+"""
+main.py
+main entrypoint to run ASR
+"""
 from asr import run_asr
 
 def main_cpu():

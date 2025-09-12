@@ -5,6 +5,9 @@ import whisper_timestamped as whisper
 import torch
 
 def load(**kwargs):
+    """
+    load a model
+    """
     model_id = kwargs.get("model_id")
     device = kwargs.get("device", "cpu")
     wt_model = whisper.load_model(model_id, device=device)
@@ -17,7 +20,7 @@ def load(**kwargs):
         "language": kwargs.get("language", "en"),
         "vad": kwargs.get("vad", True) }
 
-    if transcribe_kwargs.get("vad") is True:
+    if transcribe_kwargs.get("vad"):
         torch.hub.load(
         'snakers4/silero-vad',
         'silero_vad',
@@ -25,7 +28,9 @@ def load(**kwargs):
         force_reload=False)
 
     def transcribe_function(file, **transcribe_kwargs):
+        """
+        transcribe function helper
+        """
         audio = whisper.load_audio(str(file))
         return whisper.transcribe(wt_model, audio, **transcribe_kwargs)
-    
     return lambda file: transcribe_function(file, **transcribe_kwargs)
