@@ -6,7 +6,7 @@ from asr import run_asr
 
 def main_cpu():
     """
-    Runs ASR with cpu 
+    Runs ASR with CPU device(s)
     """
     input_fp = '../sample_files/first_ten_Sample_HV_Clip.wav'
 
@@ -19,7 +19,7 @@ def main_cpu():
 
 def main_gpu():
     """
-    Runs ASR 
+    Runs ASR with GPU device(s)
     """
     input_fp = '../sample_files/first_ten_Sample_HV_Clip.wav'
 

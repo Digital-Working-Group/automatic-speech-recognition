@@ -1,6 +1,6 @@
 # Automatic Speech Recognition
 
-This repository runs several automaic speech recognition (ASR) models on different datasets.
+This repository runs several automatic speech recognition (ASR) models on different datasets.
 
 | Table of Contents |
 |---|
@@ -85,7 +85,7 @@ Please see a few other tutorials on this process for Windows. Note that you may 
 3. [Transloadit](https://transloadit.com/devtips/how-to-install-ffmpeg-on-windows-a-complete-guide/).
 
 ## Usage Example
-See [main.main()](src/main.py) for usage examples. See `main_cpu()` and `main_gpu()` for examples of utilizing CPU and GPU devices respectively.
+See [src/main.py)](src/main.py) for usage examples. See `main_cpu()` and `main_gpu()` for examples of utilizing CPU and GPU devices respectively.
 
 ```python
 """
@@ -96,7 +96,7 @@ from asr import run_asr
 
 def main_cpu():
     """
-    Runs ASR with cpu 
+    Runs ASR with CPU device(s)
     """
     input_fp = '../sample_files/first_ten_Sample_HV_Clip.wav'
 
@@ -109,7 +109,7 @@ def main_cpu():
 
 def main_gpu():
     """
-    Runs ASR 
+    Runs ASR with GPU device(s)
     """
     input_fp = '../sample_files/first_ten_Sample_HV_Clip.wav'
 
@@ -126,7 +126,7 @@ if __name__ == '__main__':
 ```
 
 ### Arguments
-The `asr.run_asr()` function takes in an input filepath (`input_fp`) and a set of keyword arguments to define output paths, the desired model, device, output types, and additional transcribe keyword arguments.
+The `asr.run_asr()` function takes in an audio input filepath (`input_fp`) and a set of keyword arguments to define an output path, the desired model, device, output types, and additional keyword arguments for the specific transcribe function.
 
 The model loader can be found in [load_scripts](src/load_scripts/linto-ai/whisper-timestamped/model_loader.py). For more information on `whisper.load_model`, please see the [linto-ai/whisper-timestamped documentation](https://github.com/linto-ai/whisper-timestamped).
 
