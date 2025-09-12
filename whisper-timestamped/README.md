@@ -92,7 +92,7 @@ Please see a few other tutorials on this process for Windows. Note that you may 
 3. [Transloadit](https://transloadit.com/devtips/how-to-install-ffmpeg-on-windows-a-complete-guide/).
 
 ## Usage Example
-See [src/main.py)](src/main.py) for usage examples. See `main_cpu()` and `main_gpu()` for examples of utilizing CPU and GPU devices respectively.
+See [src/main.py](src/main.py) for usage examples. See `main_cpu()` and `main_gpu()` for examples of utilizing CPU and GPU devices respectively.
 
 ```python
 """
