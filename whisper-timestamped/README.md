@@ -37,7 +37,7 @@ Install requirements for Python 3.10.11:
 pip install -r requirements/py-3-10-11/requirements.txt ## Python 3.10.11 requirements
 ```
 
-There are specific requirements for Python 3.12.11 when utilizing an environment without CUDA/GPU capabilities, due to an issue with nvidia-cufile-cu12.
+There are specific requirements for Python 3.10.11 when utilizing an environment without CUDA/GPU capabilities, due to an issue with nvidia-cufile-cu12.
 
 ```sh
 pip install -r requirements/py-3-10-11/requirements_cpu.txt ## Python 3.10.11 CPU-only requirements
