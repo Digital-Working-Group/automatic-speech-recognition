@@ -25,7 +25,6 @@ whisper-timestamped
    |   |   |-- run_docker.sh
 ```
 
-### Without Docker
 Check your Python version:
 ```sh
 python --version
