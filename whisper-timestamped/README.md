@@ -147,7 +147,7 @@ See [Models](#models) for a list of suggested and compatible models.
 | output_parent | str | The desired root folder to place output files. | "output/" in the base directory of input_fp. |
 | model_id | str | The id of the desired model. | None |
 | device | str | Where operations are run. | "cpu" |
-| output_types | list | List of desired output filestypes. Choices include: json, csv, txt. | ["json"] |
+| output_types | list | List of desired output filetypes. Choices include: json, csv, txt. | ["json"] |
 | transcribe_kwargs | dict | KWARGS to be passed to whisper.transcribe. See the whisper.transcribe KWARGS table for further details. | See following table. |
 
 #### whisper.transcribe: transcribe_kwargs
