@@ -6,7 +6,7 @@ It is a part of a larger [toolkit](https://github.com/FHS-BAP/Voice-Feature-Extr
 ## Overview
 | Name | Description |
 | - |-|
-| **whisper-timestamped** | Explore an example of utilizing [whisper-timestamped](https://github.com/linto-ai/whisper-timestamped) to generate transcriptions from audio data.
+| **whisper-timestamped** | Explore the usage of [whisper-timestamped](https://github.com/linto-ai/whisper-timestamped) for generating transcriptions from audio data.
 
 ## Citations
 
