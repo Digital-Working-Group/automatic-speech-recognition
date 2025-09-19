@@ -1,0 +1,267 @@
+{
+    "text": " Now we have a recording and I'm going to start up a bit of demographic questions What is the crump marital status maried? No you right or left-handed?",
+    "segments": [
+        {
+            "id": 0,
+            "seek": 0,
+            "start": 0.55,
+            "end": 4.07,
+            "text": " Now we have a recording and I'm going to start up a bit of demographic questions",
+            "tokens": [
+                50364,
+                823,
+                321,
+                362,
+                257,
+                850,
+                765,
+                278,
+                293,
+                220,
+                40,
+                478,
+                516,
+                220,
+                1353,
+                220,
+                372,
+                446,
+                493,
+                257,
+                220,
+                5260,
+                295,
+                274,
+                443,
+                12295,
+                1651,
+                50585
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.6878537302431853,
+            "compression_ratio": 1.2647058823529411,
+            "no_speech_prob": 1.8541538793215295e-07,
+            "confidence": 0.516,
+            "words": [
+                {
+                    "text": "Now",
+                    "start": 0.55,
+                    "end": 0.89,
+                    "confidence": 0.855
+                },
+                {
+                    "text": "we",
+                    "start": 0.89,
+                    "end": 1.07,
+                    "confidence": 0.848
+                },
+                {
+                    "text": "have",
+                    "start": 1.07,
+                    "end": 1.13,
+                    "confidence": 0.81
+                },
+                {
+                    "text": "a",
+                    "start": 1.13,
+                    "end": 1.21,
+                    "confidence": 0.719
+                },
+                {
+                    "text": "recording",
+                    "start": 1.21,
+                    "end": 1.59,
+                    "confidence": 0.701
+                },
+                {
+                    "text": "and",
+                    "start": 1.59,
+                    "end": 1.99,
+                    "confidence": 0.759
+                },
+                {
+                    "text": "I'm",
+                    "start": 1.99,
+                    "end": 2.17,
+                    "confidence": 0.412
+                },
+                {
+                    "text": "going",
+                    "start": 2.17,
+                    "end": 2.19,
+                    "confidence": 0.115
+                },
+                {
+                    "text": "to",
+                    "start": 2.19,
+                    "end": 2.29,
+                    "confidence": 0.875
+                },
+                {
+                    "text": "start",
+                    "start": 2.29,
+                    "end": 2.51,
+                    "confidence": 0.616
+                },
+                {
+                    "text": "up",
+                    "start": 2.51,
+                    "end": 2.67,
+                    "confidence": 0.302
+                },
+                {
+                    "text": "a",
+                    "start": 2.67,
+                    "end": 2.77,
+                    "confidence": 0.584
+                },
+                {
+                    "text": "bit",
+                    "start": 2.77,
+                    "end": 2.89,
+                    "confidence": 0.298
+                },
+                {
+                    "text": "of",
+                    "start": 2.89,
+                    "end": 2.91,
+                    "confidence": 0.714
+                },
+                {
+                    "text": "demographic",
+                    "start": 2.91,
+                    "end": 3.53,
+                    "confidence": 0.286
+                },
+                {
+                    "text": "questions",
+                    "start": 3.53,
+                    "end": 4.07,
+                    "confidence": 0.81
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "seek": 442,
+            "start": 4.55,
+            "end": 9.49,
+            "text": " What is the crump marital status maried? No you right or left-handed?",
+            "tokens": [
+                50365,
+                708,
+                307,
+                220,
+                3322,
+                941,
+                1420,
+                1849,
+                1686,
+                6558,
+                1849,
+                414,
+                67,
+                30,
+                883,
+                220,
+                5616,
+                558,
+                220,
+                78,
+                81,
+                1411,
+                12,
+                5543,
+                292,
+                30,
+                50628
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.6991635731288365,
+            "compression_ratio": 0.9583333333333334,
+            "no_speech_prob": 5.700960059584759e-07,
+            "confidence": 0.355,
+            "words": [
+                {
+                    "text": "What",
+                    "start": 4.55,
+                    "end": 4.67,
+                    "confidence": 0.917
+                },
+                {
+                    "text": "is",
+                    "start": 4.67,
+                    "end": 4.77,
+                    "confidence": 0.649
+                },
+                {
+                    "text": "the",
+                    "start": 4.77,
+                    "end": 4.95,
+                    "confidence": 0.721
+                },
+                {
+                    "text": "crump",
+                    "start": 4.95,
+                    "end": 5.21,
+                    "confidence": 0.158
+                },
+                {
+                    "text": "marital",
+                    "start": 5.21,
+                    "end": 5.57,
+                    "confidence": 0.415
+                },
+                {
+                    "text": "status",
+                    "start": 5.57,
+                    "end": 5.97,
+                    "confidence": 0.928
+                },
+                {
+                    "text": "maried?",
+                    "start": 5.97,
+                    "end": 7.51,
+                    "confidence": 0.384
+                },
+                {
+                    "text": "No",
+                    "start": 8.07,
+                    "end": 8.43,
+                    "confidence": 0.083
+                },
+                {
+                    "text": "you",
+                    "start": 8.43,
+                    "end": 8.55,
+                    "confidence": 0.118
+                },
+                {
+                    "text": "right",
+                    "start": 8.55,
+                    "end": 8.77,
+                    "confidence": 0.794
+                },
+                {
+                    "text": "or",
+                    "start": 8.77,
+                    "end": 8.95,
+                    "confidence": 0.299
+                },
+                {
+                    "text": "left-handed?",
+                    "start": 8.95,
+                    "end": 9.49,
+                    "confidence": 0.389
+                }
+            ]
+        }
+    ],
+    "language": "en",
+    "speech_activity": [
+        {
+            "start": 0.174,
+            "end": 10.0
+        }
+    ]
+}

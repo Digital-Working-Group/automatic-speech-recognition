@@ -1,0 +1,314 @@
+{
+    "text": " Now we are recording and we are going to start off with some basic demographic questions. What is your current marital status? Married. Okay. Now you write or left-handed?",
+    "segments": [
+        {
+            "id": 0,
+            "seek": 0,
+            "start": 0.73,
+            "end": 4.25,
+            "text": " Now we are recording and we are going to start off with some basic demographic questions.",
+            "tokens": [
+                50364,
+                823,
+                321,
+                366,
+                6613,
+                293,
+                321,
+                366,
+                516,
+                281,
+                722,
+                766,
+                365,
+                512,
+                3875,
+                26331,
+                1651,
+                13,
+                50564
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.33756061476104116,
+            "compression_ratio": 1.2857142857142858,
+            "no_speech_prob": 0.017464173957705498,
+            "confidence": 0.739,
+            "words": [
+                {
+                    "text": "Now",
+                    "start": 0.73,
+                    "end": 0.95,
+                    "confidence": 0.639
+                },
+                {
+                    "text": "we",
+                    "start": 0.95,
+                    "end": 1.09,
+                    "confidence": 0.811
+                },
+                {
+                    "text": "are",
+                    "start": 1.09,
+                    "end": 1.25,
+                    "confidence": 0.688
+                },
+                {
+                    "text": "recording",
+                    "start": 1.25,
+                    "end": 1.53,
+                    "confidence": 0.879
+                },
+                {
+                    "text": "and",
+                    "start": 1.53,
+                    "end": 2.21,
+                    "confidence": 0.198
+                },
+                {
+                    "text": "we",
+                    "start": 2.21,
+                    "end": 2.33,
+                    "confidence": 0.709
+                },
+                {
+                    "text": "are",
+                    "start": 2.33,
+                    "end": 2.35,
+                    "confidence": 0.734
+                },
+                {
+                    "text": "going",
+                    "start": 2.35,
+                    "end": 2.37,
+                    "confidence": 0.884
+                },
+                {
+                    "text": "to",
+                    "start": 2.37,
+                    "end": 2.39,
+                    "confidence": 0.98
+                },
+                {
+                    "text": "start",
+                    "start": 2.39,
+                    "end": 2.51,
+                    "confidence": 0.98
+                },
+                {
+                    "text": "off",
+                    "start": 2.51,
+                    "end": 2.73,
+                    "confidence": 0.536
+                },
+                {
+                    "text": "with",
+                    "start": 2.73,
+                    "end": 2.87,
+                    "confidence": 0.652
+                },
+                {
+                    "text": "some",
+                    "start": 2.87,
+                    "end": 2.95,
+                    "confidence": 0.965
+                },
+                {
+                    "text": "basic",
+                    "start": 2.95,
+                    "end": 3.21,
+                    "confidence": 0.955
+                },
+                {
+                    "text": "demographic",
+                    "start": 3.21,
+                    "end": 3.65,
+                    "confidence": 0.959
+                },
+                {
+                    "text": "questions.",
+                    "start": 3.65,
+                    "end": 4.25,
+                    "confidence": 0.83
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "seek": 0,
+            "start": 4.61,
+            "end": 6.11,
+            "text": " What is your current marital status?",
+            "tokens": [
+                50564,
+                708,
+                307,
+                428,
+                2190,
+                1849,
+                1686,
+                6558,
+                30,
+                50664
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.33756061476104116,
+            "compression_ratio": 1.2857142857142858,
+            "no_speech_prob": 0.017464173957705498,
+            "confidence": 0.82,
+            "words": [
+                {
+                    "text": "What",
+                    "start": 4.61,
+                    "end": 4.73,
+                    "confidence": 0.614
+                },
+                {
+                    "text": "is",
+                    "start": 4.73,
+                    "end": 4.91,
+                    "confidence": 0.787
+                },
+                {
+                    "text": "your",
+                    "start": 4.91,
+                    "end": 5.05,
+                    "confidence": 0.961
+                },
+                {
+                    "text": "current",
+                    "start": 5.05,
+                    "end": 5.25,
+                    "confidence": 0.998
+                },
+                {
+                    "text": "marital",
+                    "start": 5.25,
+                    "end": 5.65,
+                    "confidence": 0.722
+                },
+                {
+                    "text": "status?",
+                    "start": 5.65,
+                    "end": 6.11,
+                    "confidence": 0.918
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "seek": 0,
+            "start": 6.59,
+            "end": 7.09,
+            "text": " Married.",
+            "tokens": [
+                50664,
+                2039,
+                2428,
+                13,
+                50714
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.33756061476104116,
+            "compression_ratio": 1.2857142857142858,
+            "no_speech_prob": 0.017464173957705498,
+            "confidence": 0.189,
+            "words": [
+                {
+                    "text": "Married.",
+                    "start": 6.59,
+                    "end": 7.09,
+                    "confidence": 0.189
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "seek": 0,
+            "start": 7.51,
+            "end": 7.79,
+            "text": " Okay.",
+            "tokens": [
+                50714,
+                1033,
+                13,
+                50764
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.33756061476104116,
+            "compression_ratio": 1.2857142857142858,
+            "no_speech_prob": 0.017464173957705498,
+            "confidence": 0.274,
+            "words": [
+                {
+                    "text": "Okay.",
+                    "start": 7.51,
+                    "end": 7.79,
+                    "confidence": 0.274
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "seek": 0,
+            "start": 8.31,
+            "end": 9.57,
+            "text": " Now you write or left-handed?",
+            "tokens": [
+                50764,
+                823,
+                291,
+                2464,
+                420,
+                1411,
+                12,
+                25407,
+                30,
+                50864
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.33756061476104116,
+            "compression_ratio": 1.2857142857142858,
+            "no_speech_prob": 0.017464173957705498,
+            "confidence": 0.676,
+            "words": [
+                {
+                    "text": "Now",
+                    "start": 8.31,
+                    "end": 8.49,
+                    "confidence": 0.621
+                },
+                {
+                    "text": "you",
+                    "start": 8.49,
+                    "end": 8.63,
+                    "confidence": 0.857
+                },
+                {
+                    "text": "write",
+                    "start": 8.63,
+                    "end": 8.83,
+                    "confidence": 0.457
+                },
+                {
+                    "text": "or",
+                    "start": 8.83,
+                    "end": 9.01,
+                    "confidence": 0.923
+                },
+                {
+                    "text": "left-handed?",
+                    "start": 9.01,
+                    "end": 9.57,
+                    "confidence": 0.664
+                }
+            ]
+        }
+    ],
+    "language": "en",
+    "speech_activity": [
+        {
+            "start": 0.174,
+            "end": 10.0
+        }
+    ]
+}

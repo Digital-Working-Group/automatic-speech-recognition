@@ -1,9 +1,2 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.wav
-*.mp3
-*.flac
-*.mp3
-.DS_Store
-*venv12/
-output/
