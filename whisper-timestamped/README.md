@@ -162,23 +162,21 @@ See [Models](#models) for a list of suggested and compatible models.
 ### Sample Input and Output Files
 
 ```
-├───sample_files
-│   │   first_ten_Sample_HV_Clip.wav
-│   │
-│   └───output
-│       ├───NbAiLabBeta_nb-whisper-base-verbatim
-│       │   └───2025-09-12T18-31-44-013031
-│       │           first_ten_Sample_HV_Clip.csv
-│       │           first_ten_Sample_HV_Clip.json
-│       │           first_ten_Sample_HV_Clip.txt
-│       │           metadata.json
-│       │
-│       └───tiny
-│           └───2025-09-12T18-31-32-139162
-│                   first_ten_Sample_HV_Clip.csv
-│                   first_ten_Sample_HV_Clip.json
-│                   first_ten_Sample_HV_Clip.txt
-│                   metadata.json
+sample_files
+|-- first_ten_Sample_HV_Clip.wav
+|-- output
+|   |-- NbAiLabBeta_nb-whisper-base-verbatim
+|   |   |-- 2025-09-12T18-31-44-013031
+|   |   |   |-- first_ten_Sample_HV_Clip.csv
+|   |   |   |-- first_ten_Sample_HV_Clip.json
+|   |   |   |-- first_ten_Sample_HV_Clip.txt
+|   |   |   |-- metadata.json
+|   |-- tiny
+|   |   |-- 2025-09-12T14-40-15-100389
+|   |   |   |-- first_ten_Sample_HV_Clip.csv
+|   |   |   |-- first_ten_Sample_HV_Clip.json
+|   |   |   |-- first_ten_Sample_HV_Clip.txt
+|   |   |   |-- metadata.json
 ```
 
 ## Models
