@@ -18,6 +18,7 @@ def load(**kwargs):
         "best_of": kwargs.get("best_of", 5),
         "temperature": kwargs.get("temperature", (0.0, 0.2, 0.4, 0.6, 0.8, 1.0)),
         "language": kwargs.get("language", "en"),
+        "fp16": kwargs.get("fp16", False),
         "vad": kwargs.get("vad", True) }
 
     if transcribe_kwargs.get("vad"):

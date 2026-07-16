@@ -29,9 +29,13 @@ def write_asr_csv(prediction, output_fp):
     rows = [['segment_id', 'text', 'start', 'end', 'confidence']]
     for segment in prediction["segments"]:
         segment_id = segment["id"]
-        for word in segment["words"]:
-            row = [segment_id, word["text"], word["start"], word["end"], word["confidence"]]
-            rows.append(row)
+        try:
+            for word in segment["words"]:
+                row = [segment_id, word["text"], word["start"], word["end"], word["confidence"]]
+                rows.append(row)
+        except KeyError as e:
+            print(e)
+            rows.append([])
     with open(output_fp, "w") as out_file:
         writer = csv.writer(out_file)
         writer.writerows(rows)
