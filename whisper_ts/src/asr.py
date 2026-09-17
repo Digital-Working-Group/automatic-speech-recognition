@@ -20,6 +20,7 @@ def run_asr(input_fp_list, **kwargs):
     output_types = kwargs.get("output_types", ["json"])
     transcribe_kwargs = kwargs.get("transcribe_kwargs", {})
     reload_every_n = kwargs.get("reload_every_n", 10)
+    make_output_path = kwargs.get("make_output_path", None)
 
     print(f"LOADING MODEL={model_id}")
     model_loader = importlib.import_module("automatic_speech_recognition.whisper_ts.src.load_scripts.models.linto-ai.whisper-timestamped.model_loader")
@@ -40,8 +41,11 @@ def run_asr(input_fp_list, **kwargs):
         input_fp_path = Path(input_fp)
         output_fname = kwargs.get('output_fname', Path(input_fp_path.name).stem)
         output_parent = kwargs.get('output_parent', input_fp_path.parent / "output")
-        iso_now = datetime.now().isoformat().replace(':', '-').replace('.', '-')
-        output_dir = Path(output_parent) / model_id.replace("/", "_") / iso_now
+        if not make_output_path:
+            iso_now = datetime.now().isoformat().replace(':', '-').replace('.', '-')
+            output_dir = Path(output_parent) / model_id.replace("/", "_") / iso_now
+        else:
+            output_dir = make_output_path(output_parent, output_fname)
         output_dir.mkdir(parents=True, exist_ok=True)
         torch.cuda.reset_peak_memory_stats()
         print(f"Memory allocated: {torch.cuda.memory_allocated() / 1e9:.2f} GB")
