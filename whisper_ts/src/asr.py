@@ -45,7 +45,7 @@ def run_asr(input_fp_list, **kwargs):
             iso_now = datetime.now().isoformat().replace(':', '-').replace('.', '-')
             output_dir = Path(output_parent) / model_id.replace("/", "_") / iso_now
         else:
-            output_dir = make_output_path(output_parent, output_fname)
+            output_dir = Path(make_output_path(output_parent, output_fname))
         output_dir.mkdir(parents=True, exist_ok=True)
         torch.cuda.reset_peak_memory_stats()
         print(f"Memory allocated: {torch.cuda.memory_allocated() / 1e9:.2f} GB")
